@@ -1,24 +1,27 @@
 #include "main.h"
+
 /**
- * _strpbrk - Entry point
- * @s: input
- * @accept: input
- * Return: Always 0 (Success)
- */
+  * _strpbrk - main function of the prototype
+  *
+  * @s: function parameter
+  *
+  * @accept: Fuunction parameter
+  *
+  * Return: Always 0.
+  */
+
 char *_strpbrk(char *s, char *accept)
 {
-        	int k;
- 
-        	while (*s)
-        	{
-                    	for (k = 0; accept[k]; k++)
-                    	{
-                    	if (*s == accept[k])
-                    	return (s);
-                    	}
-        	s++;
-        	}
- 
-return ('\0');
+	int k, j;
+
+	for (k = 0; s[k] != '\0'; k++)
+	{
+	for (j = 0; accept[j] != '\0'; j++)
+	{
+	if (s[k] == accept[j])
+	return (s + k);
+	}
+	}
+	return (0);
 }
 
