@@ -1,34 +1,22 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
-#include "lists.h"
+#include "hash_tables.h"
 
 /**
  * main - check the code
  *
- * Return: Always 0.
+ * Return: Always EXIT_SUCCESS.
  */
 int main(void)
 {
-    list_t *head;
-    list_t *new;
-    list_t hello = {"World", 5, NULL};
-    size_t n;
+    char *s;
 
-    head = &hello;
-    new = malloc(sizeof(list_t));
-    if (new == NULL)
-    {
-        printf("Error\n");
-        return (1);
-    }
-    new->str = strdup("Hello");
-    new->len = 5;
-    new->next = head;
-    head = new;
-    n = list_len(head);
-    printf("-> %lu elements\n", n);
-    free(new->str);
-    free(new);
-    return (0);
+    s = "cisfun";
+    printf("%lu\n", hash_djb2((unsigned char *)s));
+    s = "Don't forget to tweet today";
+    printf("%lu\n", hash_djb2((unsigned char *)s));
+    s = "98";
+    printf("%lu\n", hash_djb2((unsigned char *)s));
+    return (EXIT_SUCCESS);
 }
